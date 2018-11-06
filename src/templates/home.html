@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			font-family: montserrat;
+			font-weight: bold;
+			text-align: center;
+		}
+		label{
+			margin: 0px;
+		}
+		input{
+    		width: 100%;
+    		padding :1%;
+    		margin-top:2%;
+    		margin-bottom: 2%;
+    		box-sizing: border-box;
+    		border-radius: 3px;
+    		border-width: 1px;
+    		border-color: #543213
+		}
+		button {
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		a{
+
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.control{
+    		padding-top: 5%;
+    		padding-right: 20%;
+    		padding-bottom: 11%;
+    		padding-left: 20%;
+		}
+		.control2{
+    		padding-top: 5%;
+    		padding-right: 30%;
+    		padding-bottom: 5%;
+    		padding-left: 30%;
+		}
+		.head{
+			padding: 0;
+			margin:0px;
+			background-color: #000022
+		}
+		h1{
+			font-size: 72px;
+			text-align: center;
+		}
+		p{
+			margin: 3%;
+		}
+		.about{
+			font-weight: normal;
+		}
+
+	</style>
+	{% if not request.user.is_authenticated %}
+	<div class="control">
+		<h1>H-Aide</h1>
+		<p class="about">H-Aide is a website for the handicapped people for applying and alloting grants provided by the government for them. The government grants are directly alloted through this website</p>
+		<p>You are Viewing Basic Contents of This page</p>
+        <p>Login to View Premium Content</p>
+        <a href="{% url 'views.login_page' %}">Login</a>
+        <p>New User ?</p>
+        <a href="{% url 'views.register_page' %}">Register</a>
+	</div>
+	{% else %}
+	<div class="control">
+		<h1>Welcome {{ user.get_username }} :)</h1>
+        <p>Thanks for being a part of H-Aide</p>
+        {% if value %}
+        <a href="{% url 'views.details_page_view' %}">View Details</a>
+        {% else %}
+        <a href="{% url 'views.details_page' %}">Add Details</a>
+        <a href="/logout/">Logout</a>
+        {% endif %}
+	</div>
+	{% endif %}
+</body>
+</html>
