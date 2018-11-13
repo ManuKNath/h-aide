@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			font-family: montserrat;
+			font-weight: bold;
+			color: #e6e6e6;
+			background-color: #212121;
+		}
+		label{
+			margin: 0px;
+		}
+		input{
+    		width: 100%;
+    		padding :1%;
+    		margin-top:2%;
+    		margin-bottom: 2%;
+    		box-sizing: border-box;
+    		border-radius: 3px;
+    		border-width: 1px;
+    		border-color: #543213
+		}
+		button {
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		a{
+
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.control{
+    		padding-top: 5%;
+    		padding-right: 20%;
+    		padding-bottom: 11%;
+    		padding-left: 20%;
+    		background-image: url("");
+		}
+		.control2{
+    		padding-top: 2%;
+    		padding-right: 10%;
+    		padding-bottom: 2%;
+    		padding-left: 10%;
+		}
+		.red{
+    		background-color: #dc143c;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.green{
+			margin: 1%;
+    		background-color: #00ff7f;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.yellow{
+    		background-color: #ffd700;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.orange{
+    		background-color: #ffa500;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.head{
+			padding: 0;
+			margin:0px;
+			background-color: #181818;
+
+		}
+		h1{
+
+			font-size: 250%;
+			text-align: center;
+			color: #ffa500;
+
+
+		}
+		.hdiv{
+			border: 2px solid #ffa500;
+			border-radius: 4px;
+
+		}
+		.container{
+			margin-top: 1%;
+			border: 2px solid #ffa500;
+			border-radius: 4px;
+
+		}
+		p{
+			margin: 3%;
+		}
+		.about{
+			font-weight: normal;
+		}
+		h2{
+			color: #212121;
+			margin: 0;
+		}
+		.white{
+			margin: 1px;
+			text-align: center;
+			color: #e6e6e6;
+		}
+		pre{
+			font-family: montserrat;
+
+		}
+		table {
+    		font-family: arial, sans-serif;
+    		border-collapse: collapse;
+    		width: 100%;
+		}
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: center;
+		    padding: 8px;
+		}
+		tr: {
+		    background-color: #dddddd;
+		}
+			
+
+	</style>
+	<div class ="control">
+		<div class="container">
+			<div class="control">			
+			<!-- <h1> </h1><hr> -->
+			<table>
+				<tr>
+				<th><pre>First Name</pre></th>
+				<th><pre>{{ objects.fname }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Last Name</pre></th>
+					<th><pre>{{ objects.lname }}</pre></th>
+
+				<tr>
+					<th><pre>Aadhar ID</pre></th>
+					<th><pre>{{ objects.aadhar_id }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Age</pre></th>
+					<th><pre>{{ objects.age }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Address</pre></th>
+					<th><pre>{{ objects.address }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Disability</pre></th>
+					<th><pre>{{ objects.disability }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Category</pre></th>
+					<th><pre>{{ objects.category }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Percentage Disabliity</pre></th>
+					<th><pre>{{ objects.percentage_disabliity }} %</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Ward Number</pre></th>
+					<th><pre>{{ objects.ward_number }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>House Number</pre></th>
+					<th><pre>{{ objects.house_number }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Village</pre></th>
+					<th><pre>{{ objects.village }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Educational Qualification</pre></th>
+					<th><pre>{{ objects.educational_qualification }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Job</pre></th>
+					<th><pre>{{ objects.job }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Income</pre></th>
+					<th><pre>Rs.{{ objects.income }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Scheme Name</pre></th>
+					<th><pre>{{ objects.scheme_name }}</pre></th>
+				</tr>
+				<tr>
+					<th><pre>Scheme ID</pre></th>
+					<th><pre>{{ objects.scheme_id }}</pre></th>
+				</tr>
+			</table>
+			<br>
+			<center>
+				<a class="red" href="">Accept</a>
+				<a class="red" href="">Reject</a>	
+			</center>
+	</div>
+
+		</div>
+		
+	</div>
+	
+</body>
+</html>

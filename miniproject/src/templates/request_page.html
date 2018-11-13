@@ -1,0 +1,212 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			font-family: montserrat;
+			font-weight: bold;
+			color: #e6e6e6;
+			background-color: #212121;
+		}
+		label{
+			margin: 0px;
+		}
+		input{
+    		width: 100%;
+    		padding :1%;
+    		margin-top:2%;
+    		margin-bottom: 2%;
+    		box-sizing: border-box;
+    		border-radius: 3px;
+    		border-width: 1px;
+    		border-color: #543213
+		}
+		button {
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		a{
+
+    		background-color: #000022;
+   			border-radius: 3px;
+   			border:none;
+    		color: white;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.control{
+    		padding-top: 5%;
+    		padding-right: 20%;
+    		padding-bottom: 11%;
+    		padding-left: 20%;
+    		background-image: url("");
+		}
+		.control2{
+    		padding-top: 2%;
+    		padding-right: 10%;
+    		padding-bottom: 2%;
+    		padding-left: 10%;
+		}
+		.red{
+    		background-color: #dc143c;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.green{
+			margin: 1%;
+    		background-color: #00ff7f;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.yellow{
+    		background-color: #ffd700;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.orange{
+    		background-color: #ffa500;
+   			border-radius: 3px;
+   			border:none;
+    		color: #171717;
+   			padding: 1.5%;
+    		text-align: center;
+    		text-decoration: none;
+    		display: inline-block;
+    		font-family: montserrat;
+    		font-weight: bold;
+    		font-size: 16px;
+
+		}
+		.head{
+			padding: 0;
+			margin:0px;
+			background-color: #181818;
+
+		}
+		h1{
+
+			font-size: 250%;
+			text-align: center;
+			color: #ffa500;
+
+
+		}
+		.hdiv{
+			border: 2px solid #ffa500;
+			border-radius: 4px;
+
+		}
+		.container{
+			margin-top: 1%;
+			border: 2px solid #ffa500;
+			border-radius: 4px;
+
+		}
+		p{
+			margin: 3%;
+		}
+		.about{
+			font-weight: normal;
+		}
+		h2{
+			color: #212121;
+			margin: 0;
+		}
+		.white{
+			margin: 1px;
+			text-align: center;
+			color: #e6e6e6;
+		}
+		pre{
+			font-family: montserrat;
+
+		}
+		table {
+    		font-family: arial, sans-serif;
+    		border-collapse: collapse;
+    		width: 100%;
+		}
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: center;
+		    padding: 8px;
+		}
+		tr: {
+		    background-color: #dddddd;
+		}
+			
+
+	</style>
+	<div class="control">
+		<center>
+			<h1>Hi, Admin</h1>
+			<h3>Here are request from user to apply for different schemes, please review it</h3>
+			<div class="container">
+				<div class="control">
+					<tr><h3>List of requests</h3></tr>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Applied for</th>
+						</tr>
+						{% for objects in applications %}
+						<tr>
+							<th><a href ="/detail/{{ objects.fname }}"><button type="submit" name="{{ objects.fname }}">{{ objects.fname }}</button></a></th>
+							<th>{{ objects.scheme_name }}</th>
+						</tr>
+						{% endfor %}
+						{% if value %}
+							<p>Error has occured</p>
+						{% endif %}	
+					</table>
+			</div>
+		</center>
+	</div>
+</body>
+</html>
