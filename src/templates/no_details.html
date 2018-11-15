@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome</title>
+	<title>Login</title>
 </head>
 <body>
-	<style type="text/css">
+		<style type="text/css">
 		body{
 			margin: 0px;
 			font-family: montserrat;
@@ -167,55 +167,14 @@
 			
 
 	</style>
-	{% if not request.user.is_authenticated %}
-	<div class="control"><div class="control2">
-		<div class="hdiv"><h1>H-Aide</h1></div>
-		<br>
-		<div>
-			<p>You are Viewing Basic Contents of This page</p><br>
-        	<p>Login to View Premium Content</p>
-        	<a class="green" href="{% url 'LoginPage' %}">User Login</a>
-        	<a class="green" href="{% url 'AdminLogin' %}">Admin Login</a>
-        	<p>New User ?</p>
-        	<a class="orange" href="{% url 'RegisterPage' %}">Register</a>
+	<div class ="control">
+		
+		<div class="control">			
+			<h1>User hasn't added any Details :(</h1><br>
+			<a class="green" href="{% url 'AddDetails' %}">Add Details</a>	
 		</div>
-		<br>
-		<div class="container">
-		<h3>About us</h3>	
-		<p class="about">H-Aide is a website for the handicapped people for applying and alloting grants provided by the government for them. The government grants are directly alloted through this website</p><br></div>
-	</div>
-	</div>
-    {% elif request.user.is_superuser %}
-    <div class="control">
-        <div class="hdiv">
-            <h1>Welcome {{ user.get_username }} :)</h1><br><br>
-            <p>Thanks for being a part of H-Aide</p><br>
-            <a class="green" href="{% url 'EditDetails' %}">Edit Details</a>
-            <a class="green" href="{% url 'DetailsView' %}">View Details</a>
-            <a class="green" href="{% url 'AddScheme' %}">Add Scheme</a>
-            <a class="green" href="{% url 'SchemeViewAdmin' %}">View Schemes</a>
-            <a class="green" href="{% url 'ReviewRequest' %}">Review Requests</a>
-            <br><br><br>    
-        </div>
-        <br>
-        <a class="orange" href="/logout/">Logout</a>
-    </div>
-
-
-	{% else %}
-	<div class="control">
-		<div class="hdiv">
-			<h1>Welcome {{ user.get_username }} :)</h1><br><br>
-        	<p>Thanks for being a part of H-Aide</p><br>
-        	<a class="green" href="{% url 'AddDetails' %}">Add Details</a>
-        	<a class="green" href="{% url 'DetailsView' %}">View Details</a>
-        	<a class="green" href="{% url 'SchemeView' %}">View Schemes</a>
-        	<br><br><br>	
-		</div>
-		<br>
-		<a class="orange" href="/logout/">Logout</a>
 		
 	</div>
-	{% endif %}
+	
 </body>
 </html>

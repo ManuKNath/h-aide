@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome</title>
+	<title>Login</title>
 </head>
 <body>
 	<style type="text/css">
@@ -9,7 +9,6 @@
 			margin: 0px;
 			font-family: montserrat;
 			font-weight: bold;
-			text-align: center;
 			color: #e6e6e6;
 			background-color: #212121;
 		}
@@ -68,6 +67,7 @@
     		padding-left: 10%;
 		}
 		.red{
+			margin: 1%;
     		background-color: #dc143c;
    			border-radius: 3px;
    			border:none;
@@ -82,7 +82,6 @@
 
 		}
 		.green{
-			margin: 1%;
     		background-color: #00ff7f;
    			border-radius: 3px;
    			border:none;
@@ -138,6 +137,14 @@
 
 
 		}
+		.h1{
+
+			font-size: 250%;
+			text-align: center;
+			color: #ffa500;
+
+
+		}
 		.hdiv{
 			border: 2px solid #ffa500;
 			border-radius: 4px;
@@ -164,58 +171,68 @@
 			text-align: center;
 			color: #e6e6e6;
 		}
+		pre{
+			font-family: montserrat;
+
+		}
+		table {
+    		font-family: arial, sans-serif;
+    		border-collapse: collapse;
+    		width: 100%;
+		}
+		td, th {
+		    border: 1px solid #dddddd;
+		    text-align: center;
+		    padding: 8px;
+		}
+		tr: {
+		    background-color: #dddddd;
+		}
 			
 
 	</style>
-	{% if not request.user.is_authenticated %}
-	<div class="control"><div class="control2">
-		<div class="hdiv"><h1>H-Aide</h1></div>
-		<br>
-		<div>
-			<p>You are Viewing Basic Contents of This page</p><br>
-        	<p>Login to View Premium Content</p>
-        	<a class="green" href="{% url 'LoginPage' %}">User Login</a>
-        	<a class="green" href="{% url 'AdminLogin' %}">Admin Login</a>
-        	<p>New User ?</p>
-        	<a class="orange" href="{% url 'RegisterPage' %}">Register</a>
-		</div>
-		<br>
-		<div class="container">
-		<h3>About us</h3>	
-		<p class="about">H-Aide is a website for the handicapped people for applying and alloting grants provided by the government for them. The government grants are directly alloted through this website</p><br></div>
+	<div class ="control">
+		<center>
+			<div class="container">
+				<div class="control">
+					{% for objects in schemes %}
+					<table>
+						<tr>
+							<h1>{{ objects.scheme_name }}</h1>
+						</tr>
+						<tr>
+							<th><pre>Scheme ID</pre></th>
+							<th><pre>{{ objects.scheme_id }}</pre></th>
+						</tr>
+						<tr>
+							<th><pre>Category</pre></th>
+							<th><pre>{{ objects.for_category }}</pre></th>
+						</tr>
+						<tr>
+							<th><pre>Income Criteria</pre></th>
+							<th><pre>{{ objects.income_criteria }}</pre></th>
+						</tr>
+						<tr>
+							<th><pre>Percentage Criteria</pre></th>
+							<th><pre>{{ objects.percentage_criteria }}</pre></th>
+						</tr>	
+					</table>
+					{% if not page %}
+					<a class="green" href="{% url 'Apply' %}">Apply</a>
+					<a class="red" href="{% url 'Home' %}">Go Back</a>
+					{% endif %}
+					{% endfor %}
+					{% if page  %}
+						<a class="red" href="{% url 'Home' %}">Go Back</a>
+					{% endif %}
+					{% if value %}
+						<h2 class="h1">No schemes available right now! Come back later :(</h2><br>
+						<a class="red" href="{% url 'Home' %}">Go Back</a>	
+					{% endif %}
+				</div>
+			</div>
+		</center>
 	</div>
-	</div>
-    {% elif request.user.is_superuser %}
-    <div class="control">
-        <div class="hdiv">
-            <h1>Welcome {{ user.get_username }} :)</h1><br><br>
-            <p>Thanks for being a part of H-Aide</p><br>
-            <a class="green" href="{% url 'EditDetails' %}">Edit Details</a>
-            <a class="green" href="{% url 'DetailsView' %}">View Details</a>
-            <a class="green" href="{% url 'AddScheme' %}">Add Scheme</a>
-            <a class="green" href="{% url 'SchemeViewAdmin' %}">View Schemes</a>
-            <a class="green" href="{% url 'ReviewRequest' %}">Review Requests</a>
-            <br><br><br>    
-        </div>
-        <br>
-        <a class="orange" href="/logout/">Logout</a>
-    </div>
-
-
-	{% else %}
-	<div class="control">
-		<div class="hdiv">
-			<h1>Welcome {{ user.get_username }} :)</h1><br><br>
-        	<p>Thanks for being a part of H-Aide</p><br>
-        	<a class="green" href="{% url 'AddDetails' %}">Add Details</a>
-        	<a class="green" href="{% url 'DetailsView' %}">View Details</a>
-        	<a class="green" href="{% url 'SchemeView' %}">View Schemes</a>
-        	<br><br><br>	
-		</div>
-		<br>
-		<a class="orange" href="/logout/">Logout</a>
-		
-	</div>
-	{% endif %}
+	
 </body>
 </html>

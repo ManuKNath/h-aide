@@ -95,7 +95,7 @@
 			background-color: #000022
 		}
 		h1{
-			font-size: 52px;
+			font-size: 42px;
 			color: #ffa500;
 		}
 		.container{
@@ -115,6 +115,7 @@
 			<div class="container">
 				<form method="POST">{% csrf_token %}
 				<div class="control">
+					{% if request.user.is_superuser %}
 					<h1>Fill up The Details :)</h1>
 					{% if invalid %}
 						<p class="error">User Already submitted Details! Visit homepage to edit details </p>
@@ -125,6 +126,10 @@
 					<br><br>
 					<a class="red" href="{% url 'Home' %}">Go Back</a>
 					{% endif %}
+					{% else %}
+					 	<h1>Not Admin </h1>
+					{% endif %}
+
 				</div>	
 			</form>
 			</div>
