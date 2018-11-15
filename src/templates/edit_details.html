@@ -115,9 +115,10 @@
 			<div class="container">
 				<form method="POST">{% csrf_token %}
 				<div class="control">
-					<h1>Fill up The Details :)</h1>
+					<h1>Fill up The Details  :)</h1>
+					<p class="error">Ensure that you enter the correct User ID</p>
 					{% if invalid %}
-						<p class="error">User Already submitted Details! Visit homepage to edit details </p>
+						<p class="error">User ID does not exist</p>
 						<a class="red" href="{% url 'Home' %}">Go Back</a>
 					{% else %}	
 					{{form}}
