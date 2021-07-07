@@ -140,6 +140,7 @@ def apply(request):
 			application.objects.create(fname=fname,lname=lname,age=age,aadhar_id=aadhar_id,category=category,income=income,percentage=percentage,qualification=qualification,ward_number=ward_number,house_number=house_number,village=village,scheme_name=scheme_name,scheme_id=scheme_id,for_category=for_category,income_criteria=income_criteria,percentage_criteria=percentage_criteria,grant_amount=grant_amount)
 			return redirect(success_page)
 
+	#using exceptions
 	except Exception as e:
 		fname = Details.objects.get(aadhar_id=aadhar_id).fname
 		lname = Details.objects.get(aadhar_id=aadhar_id).lname
